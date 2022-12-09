@@ -1,15 +1,14 @@
-import { ChakraProvider, Flex, Box } from '@chakra-ui/react';
-import { Login } from './pages/Login';
-import { ThemeProvider } from '@emotion/react';
-import { theme } from './styles/colors';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from './routes/Router';
+import './styles/global.css';
+
 function App() {
   return (
     <ChakraProvider>
-      <ThemeProvider theme={theme}>
-        <Flex height="100vh" align="center" justify="center">
-          <Login />
-        </Flex>
-      </ThemeProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </ChakraProvider>
   );
 }
