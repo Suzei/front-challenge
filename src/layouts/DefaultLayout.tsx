@@ -4,10 +4,8 @@ import { Header } from '../components/Header';
 import { SideBar } from '../components/Sidebar';
 import CurveBackground from '../assets/curve-background.svg';
 export function DefaultLayout() {
-  const backgroundImage = `url('${CurveBackground}') cover center no-repeat`;
-
   return (
-    <Grid background={backgroundImage}>
+    <Grid backgroundImage={`url(${CurveBackground})`} fontFamily="Ubuntu">
       <Header />
       <Grid templateColumns="min-content 1fr">
         <SideBar />

@@ -1,0 +1,21 @@
+[
+    {
+        "label": "Nome:"
+    },
+
+    {
+        "label": "ID:"
+    },
+
+    {
+        "label": "Código:"
+    },
+
+    {
+        "label": "Seller:"
+    },
+
+    {
+        "label": "Prazo de entrega:"
+    }
+]

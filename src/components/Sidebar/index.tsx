@@ -21,6 +21,7 @@ export function SideBar() {
 
       {
         icon: <BsLayers size={18} />,
+        path: 'createproduct',
       },
 
       {
@@ -39,6 +40,7 @@ export function SideBar() {
 
   return (
     <Flex
+      h="550px"
       ml="1rem"
       mt="1rem"
       boxShadow="lg"

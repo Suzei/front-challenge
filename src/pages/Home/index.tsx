@@ -1,19 +1,22 @@
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading, Skeleton, Tab } from '@chakra-ui/react';
+import { useEffect } from 'react';
 import { Card } from '../../components/Card';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { api } from '../../services/api';
-import { useProduct } from '../../context/ListContext';
-import { AverageTickets } from '../../services/AverageTickets';
-export function Home() {
-  const { setList, list } = useProduct();
-  const [set, setSet] = useState([]);
-  const { averageDay, averageMonth } = AverageTickets();
+import { Chart } from '../../components/Chart';
+import { Table } from '../../components/Table';
+import { useProductData } from '../../context/ListContext';
+import { usePerMonth } from '../../hooks/usePerMonth';
 
-  useEffect(() => {
-    setSet([averageDay, averageMonth]);
-    console.log(set);
-  }, []);
+export function Home() {
+  const {
+    products,
+    avgDay,
+    avgMonth,
+    alerts,
+    ordersMonth,
+    sellsMonth,
+    perMonth,
+  } = useProductData();
+
   return (
     <Flex
       p="10"
@@ -26,58 +29,70 @@ export function Home() {
       direction="column"
     >
       <Flex w="100%" direction="column" gap="5" bg="transparent">
-        <Heading fontSize="1.75rem">Início</Heading>
+        <Heading fontSize="3xl" fontFamily="inherit">
+          Início
+        </Heading>
 
-        <Flex w="100%" justify="space-between" alignItems="center">
-          <Card title={list.value} growthNumber={list.growth} />;
-          <Card title={list.value} growthNumber={list.growth} />;
-          <Card title={list.value} growthNumber={list.growth} />;
-          <Card title={list.value} growthNumber={list.growth} />;
-          <Card title={list.value} growthNumber={list.growth} />;
-          <Card title={list.value} growthNumber={list.growth} />;
+        <Flex w="100%" justify="flex-start" gap="8" alignItems="center">
+          <Card
+            about="ontem"
+            value={avgDay?.value}
+            title="Ticket médio últimas 24h"
+            growthNumber={avgDay?.growth}
+          />
+
+          <Card
+            about="julho"
+            value={avgMonth?.value}
+            title="Ticket médio mensal"
+            growthNumber={avgMonth?.growth}
+          />
+
+          {alerts.map(item => (
+            <Card
+              since={item.since}
+              value={item.value}
+              title={item.type}
+              rightContent="arrow"
+            />
+          ))}
+
+          <Card
+            title="Pedidos realizados no mês"
+            growthNumber={ordersMonth.growth}
+            value={ordersMonth.value}
+          />
+          <Card
+            title="Produtos vendidos no mês"
+            growthNumber={sellsMonth.growth}
+            value={sellsMonth.value}
+          />
         </Flex>
 
         <Flex direction="column">
-          <Heading color="#5A4CA7" fontSize="1.5rem">
+          <Heading color="#5A4CA7" fontFamily="inherit" size="md">
             Dashboard de vendas
           </Heading>
-          <Flex>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </Flex>
+          <Flex></Flex>
         </Flex>
 
         <Flex direction="column">
-          <Heading color="#5A4CA7" fontSize="1.5rem">
+          <Heading color="#5A4CA7" fontFamily="inherit" size="md">
             Funil de conversão
           </Heading>
-          <Flex>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-          </Flex>
+          <Flex></Flex>
         </Flex>
 
         <Flex direction="column">
-          <Heading color="#5A4CA7" fontSize="1.5rem">
+          <Heading color="#5A4CA7" fontFamily="inherit" size="md">
             Perfil do usuário
           </Heading>
           <Flex>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Flex></Flex>
           </Flex>
         </Flex>
+
+        <Flex>{products ? <Table data={products}></Table> : <Skeleton />}</Flex>
       </Flex>
     </Flex>
   );

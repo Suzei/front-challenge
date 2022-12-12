@@ -1,14 +1,14 @@
 import { api } from './api';
 
-export function AverageTickets() {
-  const averageMonth = api.get('avg-ticket-month').then(function (response) {
-    return response.data;
-  });
-
-  const averageDay = api.get('avg-ticket-day').then(function (response) {
-    return response.data;
-  });
-
-  console.log(averageDay, averageMonth);
-  return { averageMonth, averageDay };
+export interface AvgTicketProps {
+  growth: number;
+  value: number | string;
 }
+
+const AvgTicketMonths = () => api.get<AvgTicketProps>('avg-ticket-month');
+const AvgTicketDay = () => api.get<AvgTicketProps>('avg-ticket-day');
+
+export const AvgTickets = {
+  AvgTicketMonths,
+  AvgTicketDay,
+};
