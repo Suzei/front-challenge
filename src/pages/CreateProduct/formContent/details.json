@@ -1,0 +1,21 @@
+[
+    {
+        "label": "name",
+        "name": "Nome"
+    },
+    {
+        "label": "id",
+        "name": "ID"
+    },
+    {
+        "label": "code",
+        "name": "Código"
+    },
+    {
+        "label": "seller",
+        "name": "Seller"
+    },
+    {
+        "label": "Período de entrega"
+    }
+]
