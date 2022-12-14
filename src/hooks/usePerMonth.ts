@@ -46,7 +46,6 @@ export const usePerMonth = () => {
     };
 
     setPerMonth([sellsDonePerMonth, perMonthProfit, canceledOrdersPerMonth]);
-    console.log(perMonth);
   }, []);
 
   useEffect(() => {
