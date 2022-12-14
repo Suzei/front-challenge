@@ -3,26 +3,22 @@ import { useState } from 'react';
 import ReactApexChart, { Props } from 'react-apexcharts';
 import { monthContentText, MonthENUM } from '../../enums/MonthEnums';
 
-interface IChartProps extends Props {
-  type?: string;
+interface customValues extends Props {
+  chartData: number[];
+  chartSubtitle: string[];
 }
 
-export function Chart({ type, ...rest }: Props) {
-  const [chartOptions, setChartOptions] = useState<IChartProps>({
+export function Chart({ chartData, chartSubtitle, ...rest }: customValues) {
+  const [chartOptions, setChartOptions] = useState({
     series: [
       {
-        data: [21, 22, 10, 28, 16, 21, 13, 30],
+        data: chartData,
       },
     ],
     options: {
       chart: {
         height: 350,
         type: 'bar',
-        events: {
-          click: function (chart, w, e) {
-            // console.log(chart, w, e)
-          },
-        },
       },
       plotOptions: {
         bar: {
@@ -38,14 +34,18 @@ export function Chart({ type, ...rest }: Props) {
       },
       xaxis: {
         categories: [
-          ['John', 'Doe'],
-          ['Joe', 'Smith'],
-          ['Jake', 'Williams'],
-          'Amber',
-          ['Peter', 'Brown'],
-          ['Mary', 'Evans'],
-          ['David', 'Wilson'],
-          ['Lily', 'Roberts'],
+          'JAN',
+          'FEV',
+          'MAR',
+          'ABR',
+          'MAI',
+          'JUN',
+          'JUL',
+          'AGO',
+          'SET',
+          'OUT',
+          'NOV',
+          'DEZ',
         ],
         labels: {
           style: {

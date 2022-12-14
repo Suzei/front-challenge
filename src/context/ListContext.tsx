@@ -27,7 +27,6 @@ export const ListProvider: React.FC = ({ children }) => {
   const { avgDay, avgMonth } = useTickets();
   const { alerts } = useAlerts();
   const { ordersMonth, sellsMonth } = useMonthAmounts();
-  const { perMonth } = usePerMonth();
 
   return (
     <ListContext.Provider
@@ -38,7 +37,6 @@ export const ListProvider: React.FC = ({ children }) => {
         alerts,
         ordersMonth,
         sellsMonth,
-        perMonth,
       }}
     >
       {children}

@@ -14,9 +14,6 @@ type Routes = {
     | 'orders';
 };
 
-interface PerMonth {
-  monthPerType: IPerMonthProps[];
-}
 const perMonth = ({ type }: Routes) =>
   api.get<IPerMonthProps[]>(`${type}-per-month`);
 

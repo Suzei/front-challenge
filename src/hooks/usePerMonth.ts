@@ -45,7 +45,7 @@ export const usePerMonth = () => {
       data: [profitOrders, profitExpectation],
     };
 
-    setPerMonth(sellsDonePerMonth, perMonthProfit, canceledOrdersPerMonth);
+    setPerMonth([sellsDonePerMonth, perMonthProfit, canceledOrdersPerMonth]);
     console.log(perMonth);
   }, []);
 

@@ -39,14 +39,13 @@ export function Card({
   );
 
   return (
-    <ChakraCard w="200px" size="md" m="0" p="3" pl="2" bg="white">
-      <Flex p="2" gap="3" direction="column" align="flex-start">
-        <Flex gap="2" align="center" justify="space-between" w="100%">
+    <ChakraCard pl="0" bg="white">
+      <Flex p="3" gap="1" direction="column" align="flex-start">
+        <Flex gap="2" align="center" justify="space-between">
           <CardHeader
             color="#4E5D66"
             p="0"
             whiteSpace="nowrap"
-            w="100%"
             fontSize="0.9rem"
             fontWeight="bold"
           >
@@ -55,7 +54,7 @@ export function Card({
 
           {rightContent &&
             (rightContent === 'arrow' ? (
-              <AiOutlineRight size={23} />
+              <AiOutlineRight size={18} />
             ) : (
               <Select />
             ))}

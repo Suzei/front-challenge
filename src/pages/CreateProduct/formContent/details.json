@@ -1,21 +1,21 @@
 [
     {
-        "label": "Nome:"
+        "label": "name",
+        "name": "Nome"
     },
-
     {
-        "label": "ID:"
+        "label": "id",
+        "name": "ID"
     },
-
     {
-        "label": "Código:"
+        "label": "code",
+        "name": "Código"
     },
-
     {
-        "label": "Seller:"
+        "label": "seller",
+        "name": "Seller"
     },
-
     {
-        "label": "Prazo de entrega:"
+        "label": "Período de entrega"
     }
 ]

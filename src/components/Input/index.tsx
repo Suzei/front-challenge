@@ -7,6 +7,7 @@ export function Input({ ...rest }: InputProps) {
       border="none"
       fontSize="1rem"
       bg="#F3F5F6"
+      w="300px"
     ></ChakraInput>
   );
 }

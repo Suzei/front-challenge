@@ -1,7 +1,17 @@
 import { Box, Divider, Flex } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
 import { BiMenuAltLeft } from 'react-icons/bi';
-import { BsHouse, BsLayers, BsTruck, BsCartDash } from 'react-icons/bs';
+import {
+  BsHouse,
+  BsLayers,
+  BsTruck,
+  BsCartDash,
+  BsTools,
+  BsCardChecklist,
+  BsChat,
+  BsPerson,
+  BsGear,
+} from 'react-icons/bs';
 
 interface IconProps {
   icon: JSX.Element;
@@ -25,22 +35,32 @@ export function SideBar() {
       },
 
       {
-        icon: <BsTruck size={18} />,
+        icon: <BsTools color="gray" size={18} />,
       },
 
       {
-        icon: <BsCartDash size={18} />,
+        icon: <BsTruck color="gray" size={18} />,
       },
 
       {
-        icon: <BsTruck size={18} />,
+        icon: <BsCartDash color="gray" size={18} />,
       },
+
+      {
+        icon: <BsCardChecklist color="gray" size={18} />,
+      },
+
+      { icon: <BsChat color="gray" size={18} /> },
+
+      { icon: <BsPerson color="gray" size={18} /> },
+
+      { icon: <BsGear color="gray" size={18} /> },
     ],
   };
 
   return (
     <Flex
-      h="550px"
+      h="580px"
       ml="1rem"
       mt="1rem"
       boxShadow="lg"
